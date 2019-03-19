@@ -1,0 +1,5 @@
+---
+- name: stop | ensure k3s is up and running
+  service:
+    name: k3s
+    state: stopped

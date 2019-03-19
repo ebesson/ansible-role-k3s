@@ -1,0 +1,29 @@
+---
+dependencies: []
+galaxy_info:
+  author: ebesson
+  description: k3s - Lightweight Kubernetes
+  company:
+  license: "Apache 2"
+  min_ansible_version: 2.4
+  platforms:
+    - name: Debian
+      versions:
+        - stretch
+    - name: Ubuntu
+      versions:
+        - xenial
+        - bionic
+  galaxy_tags:
+    - system
+    - containers
+    - arm
+    - raspberry
+    - pi
+    - orchestration
+    - kubernetes
+    - k8s
+    - k3s
+    - paas
+    - saas
+    - hosting

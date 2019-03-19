@@ -1,0 +1,14 @@
+---
+- name: start | ensure k3s is up and running
+  service:
+    name: k3s
+    state: started
+
+- name: start | wait for master node to be ready
+  command: "kubectl get nodes"
+  changed_when: false
+  register: kubectl_get_nodes_result
+  until: kubectl_get_nodes_result.stdout.find("NotReady") == -1
+  retries: 30
+  delay: 20
+  when: k3s_type == 'master'

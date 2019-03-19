@@ -1,0 +1,6 @@
+---
+- name: restart k3s
+  service:
+    name: k3s
+    state: restarted
+    daemon_reload: True

@@ -1,0 +1,19 @@
+---
+- hosts: all
+  vars:
+    k3s_master_node_address: "{{ hostvars['master'].ansible_default_ipv4.address }}"
+    k3s_cluster_token: "{{ hostvars['master']['k3s_cluster_token'] }}"
+
+- hosts: k3s-master
+  become: True
+  vars:
+    k3s_type: master
+  roles:
+    - ansible-role-k3s
+
+- hosts: k3s-agent
+  become: True
+  vars:
+    k3s_type: agent
+  roles:
+    - ansible-role-k3s
