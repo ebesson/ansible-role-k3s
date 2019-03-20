@@ -5,6 +5,8 @@ language: python
 cache:
   pip: true
 env:
+  global:
+    - ROLE_NAME: k3s
   matrix:
     - LXD_DISTRO: debian/stretch/amd64
     - LXD_DISTRO: ubuntu/bionic/amd64
@@ -28,5 +30,12 @@ install:
   - sudo pip install -U cryptography==2.6.1
   - sudo pip install --ignore-installed PyYAML
   - sudo pip install molecule==2.19.0
+before_script:
+  # Use actual Ansible Galaxy role name for the project directory.
+  - cd ../
+  - mv ansible-role-$ROLE_NAME ebesson.$ROLE_NAME
+  - cd ebesson.$ROLE_NAME
 script:
   - sudo molecule test
+notifications:
+  webhooks: https://galaxy.ansible.com/api/v1/notifications/

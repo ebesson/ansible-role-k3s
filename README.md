@@ -45,14 +45,14 @@ None.
   vars:
     k3s_type: master
   roles:
-    - k3s
+    - ebesson.k3s
 
 - hosts: k3s-agent
   become: True
   vars:
     k3s_type: agent
   roles:
-    - k3s
+    - ebesson.k3s
 ```
 
 ## License

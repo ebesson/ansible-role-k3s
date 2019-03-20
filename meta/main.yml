@@ -2,6 +2,7 @@
 dependencies: []
 galaxy_info:
   author: ebesson
+  role_name: k3s
   description: k3s - Lightweight Kubernetes
   company:
   license: "Apache 2"
