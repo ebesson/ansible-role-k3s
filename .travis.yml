@@ -8,6 +8,7 @@ env:
   global:
     - ROLE_NAME: k3s
   matrix:
+    - LXD_DISTRO: debian/buster/amd64
     - LXD_DISTRO: debian/stretch/amd64
     - LXD_DISTRO: ubuntu/bionic/amd64
     - LXD_DISTRO: ubuntu/xenial/amd64
