@@ -14,7 +14,7 @@ Available variables are listed below, along with default values (see `defaults/m
 
 State of role: `present`, `start`, `stop`
 
-    k3s_version: 0.2.0
+    k3s_version: 0.3.0
 
 Version of k3s
 
