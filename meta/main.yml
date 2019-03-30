@@ -8,6 +8,9 @@ galaxy_info:
   license: "Apache 2"
   min_ansible_version: 2.4
   platforms:
+    - name: EL
+      versions:
+        - 7
     - name: Debian
       versions:
         - stretch
