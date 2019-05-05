@@ -2,7 +2,7 @@
 [Unit]
 Description=Lightweight Kubernetes
 Documentation=https://k3s.io
-After=network.target
+After=network-online.target
 [Service]
 ExecStart=/usr/local/bin/k3s agent --server https://{{ k3s_master_node_address }}:6443 --token {{ k3s_cluster_token }} {{ k3s_addtionnal_config }} 
 KillMode=process
