@@ -5,6 +5,7 @@ Documentation=https://k3s.io
 After=network-online.target
 [Service]
 ExecStart=/usr/local/bin/k3s agent --server https://{{ k3s_master_node_address }}:6443 --token {{ k3s_cluster_token }} {{ k3s_addtionnal_config }} 
+Restart=always
 KillMode=process
 Delegate=yes
 LimitNOFILE=infinity

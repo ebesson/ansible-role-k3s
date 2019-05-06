@@ -7,6 +7,7 @@ After=network-online.target
 ExecStartPre=-/sbin/modprobe br_netfilter
 ExecStartPre=-/sbin/modprobe overlay
 ExecStart=/usr/local/bin/k3s server {{ k3s_addtionnal_config }} 
+Restart=always
 KillMode=process
 Delegate=yes
 LimitNOFILE=infinity
