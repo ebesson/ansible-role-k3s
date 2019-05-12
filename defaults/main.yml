@@ -5,3 +5,7 @@ k3s_type: master
 k3s_addtionnal_config:
 k3s_master_node_address:
 k3s_cluster_token:
+k3s_binary_map:
+  x86_64: "k3s"
+  arm: "k3s-armhf"
+  aarch64: "k3s-arm64"
