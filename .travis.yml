@@ -31,6 +31,8 @@ install:
   - sudo pip uninstall -y pyOpenSSL
   - sudo pip install -U cryptography==2.6.1
   - sudo pip install --ignore-installed PyYAML
+  - sudo pip install ansible==2.7.9
+  - sudo pip install testinfra==3.0.4
   - sudo pip install molecule==2.19.0
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
