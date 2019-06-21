@@ -3,6 +3,7 @@
   service:
     name: k3s
     state: started
+    enabled: yes
 
 - name: start | wait for master node to be ready
   command: "/usr/local/bin/k3s kubectl get nodes"
