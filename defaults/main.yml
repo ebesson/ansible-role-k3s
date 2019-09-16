@@ -8,4 +8,5 @@ k3s_cluster_token:
 k3s_binary_map:
   x86_64: "k3s"
   arm: "k3s-armhf"
+  armv7l: "k3s-armhf"
   aarch64: "k3s-arm64"
