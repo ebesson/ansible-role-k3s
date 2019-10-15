@@ -23,6 +23,6 @@ before_script:
   - mv ansible-role-$ROLE_NAME ebesson.$ROLE_NAME
   - cd ebesson.$ROLE_NAME
 script:
-  - molecule test
+  - tox -e ci
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
