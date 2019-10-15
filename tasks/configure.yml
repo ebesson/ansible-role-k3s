@@ -33,5 +33,8 @@
 
 - name: configure | set fact k3s_cluster_token
   set_fact:
-    k3s_cluster_token: "{{ k3s_cluster_token_raw['content'] | b64decode | replace('\n', '')}}"
+    k3s_cluster_token: "{{ k3s_cluster_token_raw['content'] | b64decode | replace('\n', '') }}"
   when: k3s_type == 'master'
+
+- name: configure | flush_handlers
+  meta: flush_handlers
