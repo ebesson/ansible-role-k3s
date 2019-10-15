@@ -1,6 +1,7 @@
 extends: default
 ignore: |
   roles-dependencies
+  footloose.yaml
 
 rules:
   braces:

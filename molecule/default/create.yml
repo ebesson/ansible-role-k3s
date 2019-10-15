@@ -1,30 +1,13 @@
 ---
 - name: Create
   hosts: localhost
-  connection: local
-  gather_facts: False
-  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+  gather_facts: true
   vars:
-    molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
-    molecule_yml: "{{ lookup('file', molecule_file) | from_yaml }}"
+    footloose_image: "{{ lookup('env','FOOTLOOSE_IMAGE') or 'quay.io/footloose/centos7' }} "
   tasks:
-    - name: Create molecule instance(s)
-      lxd_container:
-        name: "{{ item.name }}"
-        state: started
-        config: {
-          "security.nesting": "true",
-          "security.privileged": "true",
-          "raw.lxc": "lxc.apparmor.profile=unconfined\nlxc.cap.drop= \nlxc.cgroup.devices.allow=a\nlxc.mount.auto=proc:rw sys:rw",
-          "linux.kernel_modules": "ip_tables,ip6_tables,netlink_diag,nf_nat,overlay"
-        }
-        source:
-          type: image
-          mode: pull
-          server: https://images.linuxcontainers.org
-          protocol: lxd
-          alias: "{{lookup('env','LXD_DISTRO') or 'debian/stretch/amd64'}}"
-        profiles: ["default"]
-        wait_for_ipv4_addresses: True
-        timeout: 600
-      with_items: "{{ molecule_yml.platforms }}"
+    - name: create footloose configuration
+      template:
+        src: templates/footloose.yaml.j2
+        dest: "{{ playbook_dir }}/footloose.yaml"
+    - name: create vm
+      shell: footloose create

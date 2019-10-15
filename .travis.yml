@@ -4,42 +4,25 @@ dist: xenial
 language: python
 cache:
   pip: true
+services:
+  - docker
 env:
   global:
     - ROLE_NAME: k3s
   matrix:
-    - LXD_DISTRO: centos/7/amd64
-    - LXD_DISTRO: debian/buster/amd64
-    - LXD_DISTRO: debian/stretch/amd64
-    - LXD_DISTRO: ubuntu/bionic/amd64
-    - LXD_DISTRO: ubuntu/xenial/amd64
+    - FOOTLOOSE_IMAGE: quay.io/footloose/centos7
 before_install:
-  - sudo apt-get -qq update && sudo apt remove --purge lxd lxd-client
-  - sudo rm -Rf /var/lib/lxd
-  - sudo apt-get -y install snapd
-  - sudo snap install lxd
-  - sudo systemctl stop snap.lxd.daemon.service
-  - sudo rm -Rf /var/snap/lxd/common/lxd/*
-  - sudo systemctl start snap.lxd.daemon.service
-  - sudo bash -c 'echo PATH=/snap/bin:$PATH >> /etc/environment'
-  - while [ ! -S /var/snap/lxd/common/lxd/unix.socket ]; do echo "Waiting for LXD socket...";sleep 0.2;done;
-  - sudo lxd init --auto
-  - sudo mkdir -p /var/lib/lxd
-  - sudo ln -s /var/snap/lxd/common/lxd/unix.socket /var/lib/lxd/unix.socket
+  - curl -Lo footloose https://github.com/weaveworks/footloose/releases/download/0.6.2/footloose-0.6.2-linux-x86_64
+  - chmod +x footloose
+  - sudo mv footloose /usr/local/bin/
 install:
-  - sudo pip install -U pip
-  - sudo pip uninstall -y pyOpenSSL
-  - sudo pip install -U cryptography==2.6.1
-  - sudo pip install --ignore-installed PyYAML
-  - sudo pip install ansible==2.7.9
-  - sudo pip install testinfra==3.0.4
-  - sudo pip install molecule==2.19.0
+  - sudo pip install -U tox
 before_script:
   # Use actual Ansible Galaxy role name for the project directory.
   - cd ../
   - mv ansible-role-$ROLE_NAME ebesson.$ROLE_NAME
   - cd ebesson.$ROLE_NAME
 script:
-  - sudo molecule test
+  - molecule test
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/

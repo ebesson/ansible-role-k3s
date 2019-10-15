@@ -3,7 +3,7 @@
   hosts: all
   gather_facts: false
   tasks:
-    - name: Install some basic packages because LXC containers are bare
+    - name: Install some basic packages
       raw: |
         if [ -x "$(command -v apt-get)" ]
         then

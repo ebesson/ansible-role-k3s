@@ -1,0 +1,13 @@
+---
+cluster:
+  name: k3s
+  privateKey: cluster-key
+machines:
+- count: 1
+  spec:
+    backend: docker
+    image: {{ footloose_image }}
+    name: master%d
+    privileged: true
+    portMappings:
+    - containerPort: 22

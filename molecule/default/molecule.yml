@@ -3,11 +3,11 @@ dependency:
   name: galaxy
   enabled: False
 driver:
-  name: lxd
+  name: docker
 lint:
   name: yamllint
 platforms:
-  - name: master
+  - name: k3s-master0
     groups:
       - k3s-master
       - all

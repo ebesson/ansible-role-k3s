@@ -4,4 +4,7 @@ __pycache__/
 .molecule
 report.xml
 *.retry
-.vscode.tox/
+.vscode
+cluster-key*
+footloose.yaml
+.tox/
