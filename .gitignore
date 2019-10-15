@@ -4,4 +4,4 @@ __pycache__/
 .molecule
 report.xml
 *.retry
-.vscode
+.vscode.tox/
