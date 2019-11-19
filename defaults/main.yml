@@ -1,6 +1,6 @@
 ---
 k3s_state: present
-k3s_version: 0.10.2
+k3s_version: 1.0.0
 k3s_type: master
 k3s_addtionnal_config:
 k3s_master_node_address:
