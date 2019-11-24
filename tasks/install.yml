@@ -1,7 +1,8 @@
 ---
 - name: install | download k3s binary
   get_url:
-    url: https://github.com/rancher/k3s/releases/download/v{{ k3s_version }}/{{ k3s_binary_map[ansible_facts.architecture] }}
+    url: "{{ k3s_download_url_base }}/v{{ k3s_version }}/{{ k3s_binary_map[ansible_facts.architecture] }}"
+    checksum: sha256:{{ k3s_download_url_base }}/v{{ k3s_version }}/sha256sum-{{ k3s_checksum_map[ansible_facts.architecture] }}.txt
     dest: /usr/local/bin/k3s
     validate_certs: yes
     owner: root
