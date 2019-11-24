@@ -5,6 +5,12 @@ k3s_type: master
 k3s_addtionnal_config:
 k3s_master_node_address:
 k3s_cluster_token:
+k3s_download_url_base: https://github.com/rancher/k3s/releases/download
+k3s_checksum_map:
+  x86_64: amd64
+  arm: armhf
+  armv7l: armhf
+  aarch64: arm64
 k3s_binary_map:
   x86_64: "k3s"
   arm: "k3s-armhf"
