@@ -11,6 +11,7 @@ env:
     - ROLE_NAME: k3s
   matrix:
     - FOOTLOOSE_IMAGE: quay.io/footloose/centos7
+    - FOOTLOOSE_IMAGE: quay.io/footloose/debian10
 before_install:
   - curl -Lo footloose https://github.com/weaveworks/footloose/releases/download/0.6.2/footloose-0.6.2-linux-x86_64
   - chmod +x footloose
