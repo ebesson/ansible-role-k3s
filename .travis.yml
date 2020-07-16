@@ -12,6 +12,7 @@ env:
   matrix:
     - FOOTLOOSE_IMAGE: quay.io/footloose/centos7
     - FOOTLOOSE_IMAGE: quay.io/footloose/debian10
+    - FOOTLOOSE_IMAGE: quay.io/footloose/ubuntu16.04
 before_install:
   - curl -Lo footloose https://github.com/weaveworks/footloose/releases/download/0.6.2/footloose-0.6.2-linux-x86_64
   - chmod +x footloose
