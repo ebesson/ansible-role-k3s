@@ -4,8 +4,10 @@ dependency:
   enabled: False
 driver:
   name: docker
-lint:
-  name: yamllint
+lint: |
+  yamllint --config-file=.yamllint .
+  ansible-lint --exclude molecule
+  flake8
 platforms:
   - name: k3s-master0
     groups:

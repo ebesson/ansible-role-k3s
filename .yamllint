@@ -1,8 +1,9 @@
+---
 extends: default
 ignore: |
   roles-dependencies
   footloose.yaml
-
+  .tox/
 rules:
   braces:
     max-spaces-inside: 1
