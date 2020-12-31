@@ -3,6 +3,7 @@
   vars:
     k3s_master_node_address: "{{ hostvars['master'].ansible_default_ipv4.address }}"
     k3s_cluster_token: "{{ hostvars['master']['k3s_cluster_token'] }}"
+    k3s_version: 1.19.5+k3s1
 
 - hosts: k3s-master
   become: True
