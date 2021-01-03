@@ -11,6 +11,7 @@ galaxy_info:
     - name: EL
       versions:
         - 7
+        - 8
     - name: Debian
       versions:
         - stretch
@@ -19,6 +20,7 @@ galaxy_info:
       versions:
         - xenial
         - bionic
+        - focal
   galaxy_tags:
     - system
     - containers
