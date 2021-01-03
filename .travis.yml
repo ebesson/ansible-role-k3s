@@ -10,8 +10,8 @@ env:
   global:
     - ROLE_NAME: k3s
   matrix:
-    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos7-ansible:latest
-    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos8-ansible:latest
+    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos7-ansible
+    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos8-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-debian9-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-debian10-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu1604-ansible
