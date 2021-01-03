@@ -10,14 +10,7 @@ env:
   global:
     - ROLE_NAME: k3s
   matrix:
-    - FOOTLOOSE_IMAGE: quay.io/footloose/centos7
-    - FOOTLOOSE_IMAGE: quay.io/footloose/debian10
-    - FOOTLOOSE_IMAGE: quay.io/footloose/ubuntu16.04
-    - FOOTLOOSE_IMAGE: quay.io/footloose/ubuntu18.04
-before_install:
-  - curl -Lo footloose https://github.com/weaveworks/footloose/releases/download/0.6.2/footloose-0.6.2-linux-x86_64
-  - chmod +x footloose
-  - sudo mv footloose /usr/local/bin/
+    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu2004-ansible
 install:
   - sudo pip install -U tox
 before_script:
