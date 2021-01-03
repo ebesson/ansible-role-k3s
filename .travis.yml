@@ -11,6 +11,7 @@ env:
     - ROLE_NAME: k3s
   matrix:
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos7-ansible:latest
+    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos8-ansible:latest
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu2004-ansible
 install:
   - sudo pip install -U tox
