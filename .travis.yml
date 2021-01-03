@@ -14,6 +14,7 @@ env:
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-centos8-ansible:latest
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-debian9-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-debian10-ansible
+    - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu1604-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu1804-ansible
     - MOLECULE_DOCKER_IMAGE: geerlingguy/docker-ubuntu2004-ansible
 install:
